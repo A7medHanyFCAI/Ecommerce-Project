@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Products</title>
+  
+   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="products.css">
+  <script type="module" src="products.js"></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+
+    <nav>
+        <div class="nav-container">
+          <div class="cyber-logo">
+            <img src="images/Logo.png" alt="logo image" />
+          </div>
+          <div class="search-bar">
+            <span><img src="images/Search.png" alt="search image"></span>
+            <input type="text" name="" id="searchInput" placeholder="Search">
+        </div>
+
+          <div class="nav-links">
+            <ul>
+              <li><a href="home.html" class="nav-link active">Home</a></li>
+              <li><a href="products.html" class="nav-link">Products</a></li>
+              <li><a href="#" class="nav-link">About</a></li>
+              <li><a href="#" class="nav-link">Contact</a></li>
+            </ul>
+          </div>
+  
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          
+          <div class="nav-icons" >
+            <a href="favorite.html" class="cart-anchor"><img src="images/Favorites.png" alt="heart image" id="favorite"/><span class="badge" id="heart-badge">0</span></a>
+  
+            <a href="cart.html" class="cart-anchor"> <img src="images/Cart.png" alt="cart image" /><span class="badge" id="cart-badge">0</span></a>
+  
+            <img src="images/User.png" alt="user image" />
+          </div>
+  
+        </div>
+      </nav>
+     <!-- Browse By Categories -->
+     <section class="browse-container">
+        <div class="browse">
+            <div class="browse-header">
+                <h1>Browse By Category</h1>
+            </div>
+            <div class="arrows-container">
+                <div class="arrow-prev">
+                    <img src="images/prev-arrow.png" alt="">
+                </div>
+                <div class="arrow-next">
+                    <img src="images/next-arrow.png" alt="">
+                </div>
+            </div>
+        </div>
+      
+        <div class="categories">
+        </div>
+
+     </section>
+
+  <!-- Filters -->
+  <section class="filter-bar">
+    <h1>All Products</h1>
+    <select id="sortSelect">
+      <option value="default">Sort by</option>
+      <option value="low-high">Price: Low to High</option>
+      <option value="high-low">Price: High to Low</option>
+      <option value="az">Name: A–Z</option>
+      <option value="za">Name: Z–A</option>
+    </select>
+  </section>
+
+  <!-- Products -->
+  <section class="products-container">
+    <div class="products" id="products">
+          
+        </div>
+    <div class="pagination" id="pagination"></div>
+  </section>
+
+  <!-- Footer -->
+
+      <footer>
+        <div class="cyber">
+            <img src="images/footer-logo.png" alt="">
+            <p>We are residential interior design firm located in Portland. Our boutique-studio offers more than</p>
+            <div class="icons-container">
+                <div class="icons">
+                <img src="images/Twitter.png" alt=""><img src="images/facebook.png" alt=""><img src="images/tiktok.png" alt=""><img src="images/instagram.png" alt="">
+            </div>
+            </div>
+            
+        </div>
+        <div class="services">
+            <p class="footer-header">Services</p>
+            <p>Bonus program</p>
+            <p>Gift cards</p>
+            <p>Credit and payment</p>
+            <p>Service contracts</p>
+            <p>No-cash account</p>
+            <p>Payment</p>
+        </div>
+        <div class="assistance">
+            <p class="footer-header">Assistance to the buyer</p>
+            <p>Find an order</p>
+            <p>Terms of delivery</p>
+            <p>Exchange and return of goods</p>
+            <p>Guarantee</p>
+            <p>Frequently asked question</p>
+            <p>Terms of use of the site</p>
+        </div>
+      </footer>
+</body>
+</html>
