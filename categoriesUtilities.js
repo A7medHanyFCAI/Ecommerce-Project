@@ -1,5 +1,3 @@
-
-
 export const categories = [
     { image:"images/responsive.png", title:"Electronics" },
     { image:"images/grocery.png", title:"Groceries" },

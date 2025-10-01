@@ -1,5 +1,8 @@
 import * as Categories from './categoriesUtilities.js'
 
+const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
 // Categories 
 const categoriesContainer = document.querySelector(".categories");
 const prevBtn = document.querySelector(".arrow-prev");
@@ -26,7 +29,7 @@ prevBtn.addEventListener('click',()=>
   ));
 
 
-Categories.displayCategories(start, countCategories,categoriesContainer);
+Categories.displayCategories(start, countCategories,categoriesContainer,);
 
 
 
@@ -60,8 +63,8 @@ async function fetching() {
     arrivals = allProducts.slice(110, 118);
     discounts = allProducts.slice(100, 104);
 
-    productUtil.displayProducts(newArrivalProducts,arrivals)
-    productUtil.displayProducts(dicountedProducts,discounts)
+    productUtil.displayProducts(newArrivalProducts,arrivals,favorites,cartItems)
+    productUtil.displayProducts(dicountedProducts,discounts,favorites,cartItems)
 }
 
 fetching()
@@ -71,11 +74,12 @@ const viewMoreBtn = document.querySelector(".view")
 
 function viewMore(){
   if (viewMoreBtn.textContent === "View More"){
-    productUtil.displayProducts(newArrivalProducts,arrivals,arrivals.length)
+   
+    productUtil.displayProducts(newArrivalProducts,arrivals,favorites,cartItems,arrivals.length)
     viewMoreBtn.textContent = "View Less"
   }
   else{
-    productUtil.displayProducts(newArrivalProducts,arrivals)
+    productUtil.displayProducts(newArrivalProducts,arrivals,favorites,cartItems)
     viewMoreBtn.textContent = "View More"
   }
 }
@@ -84,142 +88,44 @@ viewMoreBtn.addEventListener("click", viewMore);
 
 //============================================================================
 // Add/Remove to Favorite
-
 const heartBadge = document.getElementById('heart-badge')
 
-if (favorites.length>0){
-  heartBadge.style.display = 'inline'
-  heartBadge.textContent = favorites.length
-}
-else{
-  heartBadge.style.display = 'none'
-}
+productUtil.checkBadge(heartBadge,favorites)
 
-function toggleFavorite(e) {
-  if (e.target && e.target.classList.contains("favourite-icon")) {
-    const card = e.target.closest(".product-card");
-    const productId = Number(card.id);
-    
-    const index = favorites.findIndex(fav => fav.id === productId);
+newArrivalProducts.addEventListener("click",(e) => 
+  productUtil.toggleFavorite(e, heartBadge,favorites));
 
-    if (index === -1) {
-     
-      const img = card.querySelector(".product-img").src;
-      const name = card.querySelector(".product-name").textContent;
-      const price = card.querySelector(".product-price").textContent;
-      const barcode = card.dataset.barcode
-      favorites.push({ id: productId, img: img, title: name, price: price , barcode:barcode});
-      card.classList.add("favorited");
-
-      
-    } else {
-    
-      favorites.splice(index, 1);
-      card.classList.remove("favorited");
-    }
-    if (favorites.length>0){
-      heartBadge.style.display = 'inline'
-      heartBadge.textContent = favorites.length
-    }
-    else{
-      heartBadge.style.display = 'none'
-    }
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-  }
-}
-
-newArrivalProducts.addEventListener("click", toggleFavorite);
-dicountedProducts.addEventListener("click", toggleFavorite);
+dicountedProducts.addEventListener("click", (e) => 
+  productUtil.toggleFavorite(e, heartBadge,favorites));
 
 //========================================================================
 
 const cartBadge = document.getElementById('cart-badge')
-if (cartItems.length>0){
-  cartBadge.style.display = 'inline'
-  cartBadge.textContent = cartItems.length
-}
-else{
-  cartBadge.style.display = 'none'
-}
+
+productUtil.checkBadge(cartBadge,null,cartItems)
+
 // Buy Button
 
-
-function buyProduct(e) {
-  if (e.target && e.target.classList.contains("buy")) {
-    const card = e.target.closest(".product-card");
-    const productId = Number(card.id);
-
-    
-
-    const img = card.querySelector(".product-img").src;
-    const name = card.querySelector(".product-name").textContent;
-    const price = card.querySelector(".product-price").textContent;
-    const barcode = card.dataset.barcode
-    cartItems.push({ id: productId, img, name, price, quantity: 1, barcode:barcode });
-    localStorage.setItem("cart", JSON.stringify(cartItems));   
-    
-    if (cartItems.length>0){
-      cartBadge.style.display = 'inline'
-      cartBadge.textContent = cartItems.length
-    }
-    else{
-      cartBadge.style.display = 'none'
-    }
-
-    e.target.textContent = "Item in Cart";
-    e.target.disabled = true;
-  }
-}
-
-newArrivalProducts.addEventListener("click", buyProduct);
-dicountedProducts.addEventListener("click", buyProduct);
+newArrivalProducts.addEventListener("click", (e)=>
+  productUtil.buyProduct(e,cartBadge,cartItems));
+dicountedProducts.addEventListener("click", (e)=>
+  productUtil.buyProduct(e,cartBadge,cartItems));
 
 //========================================================================
 
 // Open Product details
 
-function openProductDetail(e) {
-  if (e.target && e.target.classList.contains("product-img")) {
-    const card = e.target.closest(".product-card");
-    const productId = Number(card.id);
-
-    window.location.href = `product-details.html?id=${productId}`;
-  }
-}
-
-
-newArrivalProducts.addEventListener("click", openProductDetail);
-dicountedProducts.addEventListener("click", openProductDetail);
+newArrivalProducts.addEventListener("click", productUtil.openProductDetail);
+dicountedProducts.addEventListener("click", productUtil.openProductDetail);
 
 //========================================================================
+import * as navUtili from './navbarUtilities.js'
 // Open Products Page
 
-const shop = document.querySelectorAll(".shop")
-const navLinks = document.querySelector(".nav-links")
-const anchors = navLinks.querySelectorAll(".nav-link");
+navUtili.openProductsPage()
 
 // Highlight active link based on URL
-const currentPage = window.location.pathname.split("/").pop();
-anchors.forEach(link => {
-  if (link.getAttribute("href") === currentPage) {
-    link.classList.add("active");
-  } else {
-    link.classList.remove("active");
-  }
-});
+navUtili.highlightActiveLink()
 
-shop.forEach(btn=>{
-  btn.addEventListener('click', function(){
-   window.location.href = `products.html`;
-
-})
-})
-
-
-const hamburger = document.querySelector(".hamburger");
-const navLinksContainer = document.querySelector(".nav-links");
-
-hamburger.addEventListener("click", () => {
-  navLinksContainer.classList.toggle("open");
-  hamburger.classList.toggle("active");
-});
+// hamburger menu
+navUtili.toggleHamburger()

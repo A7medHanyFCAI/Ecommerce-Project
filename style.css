@@ -389,7 +389,7 @@ html {
    display: flex;
    flex-direction: column;
     background-color: black;
-    padding: 4rem 6rem;
+    padding: 1rem 6rem;
     
   }
   .footer-container{
@@ -462,6 +462,9 @@ html {
       flex-wrap: wrap;
       gap: 3rem;
     }
+    .banner p{
+      width: 70%;
+    }
     .services,
     .assistance,
     .cyber {
@@ -472,7 +475,7 @@ html {
   
   /* Mobile (<= 768px) */
   @media (max-width: 768px) {
-     
+
     .ads-container {
       flex-direction: column;
       text-align: center;
@@ -508,9 +511,7 @@ html {
       width: 70%;
     }
     footer{
-     
       flex-direction: column;
-      
       align-items: center;
     
     }
@@ -519,6 +520,7 @@ html {
       gap: 2rem;
       width: 100%;
     }
+
     .cyber,.services,.assistance{
        flex-direction: column;
       align-items: center;
@@ -544,12 +546,6 @@ html {
    
     .banner h1 {
       font-size: 3.5rem;
-    }
-    .footer-container {
-      flex-direction: column;
-      padding: 5rem 2rem;
-      gap: 2rem;
-     
     }
   }
   
