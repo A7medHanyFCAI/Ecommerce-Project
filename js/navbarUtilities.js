@@ -16,7 +16,7 @@ export function highlightActiveLink(){
     })
 }
 
-
+// ========================================================================
 // open products page
 
 export function openProductsPage(){
@@ -24,7 +24,7 @@ export function openProductsPage(){
         btn.addEventListener('click', ()=> window.location.href = `products.html`)
     })
 }
-
+// ========================================================================
 // hamburger menu
 
 const hamburger = document.querySelector(".hamburger")

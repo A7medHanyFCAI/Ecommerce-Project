@@ -1,4 +1,3 @@
-
 // Create Product Card 
 
 export function createProductCard(product,favorites,cartItems){
@@ -31,7 +30,7 @@ export function createProductCard(product,favorites,cartItems){
   `
 }
 
-
+// ========================================================================
 // Display the Card
 export function displayProducts(container,products,favorites,cartItems,limit=4){
     container.innerHTML = ""

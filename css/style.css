@@ -146,6 +146,7 @@ html {
     justify-content: center;
     align-items: center;
     width: 100%;
+    
   }
   .iphone-desc {
     display: flex;
@@ -288,11 +289,11 @@ html {
     width: 100%;
   }
   .product-card .favourite-icon {
-    content: url("images/favourite.png");
+    content: url("../images/favourite.png");
     cursor: pointer;
   }
   .product-card.favorited .favourite-icon {
-    content: url("images/redLike.png");
+    content: url("../images/redLike.png");
   }
   .product-img {
     width: 15rem;
@@ -334,13 +335,13 @@ html {
   .view:hover,
   .checkout:hover {
     background-color: #909090;
-    border: none;
+    border-color:#909090;
     cursor: pointer;
   }
   
   /* === BANNER === */
   .banner {
-    background-image: url("images/Banner.png");
+    background-image: url("../images/Banner.png");
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -455,9 +456,7 @@ html {
     .discounted-products {
       justify-content: center;
     }
-    .product-card {
-      width: 45%;
-    }
+    
     footer {
       flex-wrap: wrap;
       gap: 3rem;
@@ -470,6 +469,9 @@ html {
     .cyber {
       width: 100%;
       align-items: start;
+    }
+    .cyber p{
+      width: 80%;
     }
   }
   
@@ -496,9 +498,7 @@ html {
       width: 40%;
       height: 12rem;
     }
-    .product-card {
-      width: 100%;
-    }
+  
     .banner {
       font-size: 1.4rem;
       text-align: center;
