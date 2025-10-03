@@ -37,12 +37,12 @@ A fully responsive ecommerce web application built with **vanilla JavaScript**, 
 ├── favorite.html # Favorites (wishlist) page
 ├── cart.html # Shopping cart page
 |
-|├── css/
+├── css/
 | ├── style.css # Global styles
 │ ├── products.css # Products page styles
 | ├── product-details.css # Single product page styles
 | ├── cart.css # Cart page styles
-| ├── favorite.css # favorite page styles
+| └── favorite.css # favorite page styles
 |
 ├── js/
 │ ├── products.js # Product listing logic
