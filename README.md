@@ -5,8 +5,7 @@ A fully responsive ecommerce web application built with **vanilla JavaScript**, 
 ---
 
 ## 🚀 Live Demo  
-🔗 [View the Live Demo](https://a7medhanyfcai.github.io/Ecommerce-Project/home.html)  
-*(Replace `#` with your live deployed project link)*  
+🔗 [View the Live Demo](https://a7medhanyfcai.github.io/Ecommerce-Project/home.html) 
 
 ---
 
