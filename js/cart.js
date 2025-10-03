@@ -89,7 +89,7 @@ updateSummary();
 // Update Cart Item 
 function updateCartItem(card, item) {
   card.querySelector(".quantity").textContent = item.quantity;
-  const unitPrice = Number(item.price.slice(1));
+  const unitPrice = Number(item.price);
   card.querySelector(".item-price").textContent = `$${Math.round(
     unitPrice * item.quantity
   )}`;
