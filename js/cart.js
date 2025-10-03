@@ -64,12 +64,13 @@ function updateSummary() {
   let subtotal = 0;
 
   cart.forEach((item) => {
-    const priceNum = Math.round(Number(item.price.slice(1)));
+    const priceNum = Math.round(Number(item.price));
+    
     subtotal += priceNum * item.quantity;
   });
 
   const tax =Math.round( subtotal * 15 / 100);
-  const shipping =Math.round( subtotal * 2 / 100);
+  const shipping =Math.round( subtotal *5 / 100);
 
   const total = subtotal + tax + shipping;
 
