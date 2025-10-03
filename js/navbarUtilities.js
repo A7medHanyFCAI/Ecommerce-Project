@@ -28,7 +28,7 @@ export function openProductsPage(){
 // hamburger menu
 
 const hamburger = document.querySelector(".hamburger")
-const navLinksContainer = document.querySelector(".nav-links")
+const navLinksContainer = document.querySelector(".links-icons-container")
 
 export function toggleHamburger(){
     

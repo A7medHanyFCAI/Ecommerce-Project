@@ -83,7 +83,12 @@ html {
     color: black;
     opacity: 1;
   }
-  
+  .links-icons-container{
+    display: flex;
+    justify-content: space-between;
+    width: 65%;
+    align-items: center;
+  }
   /* Nav Icons */
   .nav-icons {
     display: flex;
@@ -118,24 +123,27 @@ html {
     .hamburger {
       display: flex;
     }
-    .nav-links {
+    .links-icons-container {
       position: absolute;
-      top: 6.5rem; /* below navbar */
-      left: 0;
-      width: 100%;
+      top: 6.5rem; 
+      /* left: 0; */
+      width: 50%;
       background: white;
       flex-direction: column;
       padding: 1rem;
       display: none;
-      
+      align-items: flex-start;
+      /* justify-self: flex-end; */
+      align-self: flex-end;
     }
-    .nav-links.open {
+    .links-icons-container.open {
       display: flex;
       max-height: 40rem;
+
     }
     .nav-links ul {
       flex-direction: column;
-      gap: 1.5rem;
+      gap:1.5rem;
     }
   }
   
@@ -481,8 +489,16 @@ html {
     .ads-container {
       flex-direction: column;
       text-align: center;
-   
       width: 100%;
+    }
+    .nav-container{
+      flex-direction: column;
+    }
+    .logo-hamburger{
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      align-items: center;
     }
     .iphone-desc {
       width: 100%;
