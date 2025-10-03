@@ -58,12 +58,10 @@ html {
   }
   .nav-links a {
     text-decoration: none;
-    color: #656565;
-    opacity: 0.3;
-    font-size: 1.6rem;
+    color: #434343;
+    opacity: 0.6;
+    font-size: 1.9rem;
     font-weight: 500;
-    transition: color 0.3s ease;
-    
   }
   .cart-anchor{
     position: relative;

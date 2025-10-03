@@ -68,8 +68,9 @@ function updateSummary() {
     subtotal += priceNum * item.quantity;
   });
 
-  const tax = 50;
-  const shipping = 29;
+  const tax =Math.round( subtotal * 15 / 100);
+  const shipping =Math.round( subtotal * 2 / 100);
+
   const total = subtotal + tax + shipping;
 
   orderSummery.innerHTML = `
